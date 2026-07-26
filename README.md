@@ -1,75 +1,110 @@
-# React + TypeScript + Vite
+# Angel Torres Guilló
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Junior Web Developer
 
-Currently, two official plugins are available:
+## EXPERIENCIA
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### __Editor web de practicas__ - llisat S.L. (Elche)
 
-## React Compiler
+OCTUBRE 2025
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- « Gestion y mantenimiento del sitio web de la empresa, edicion y publicacion a través de WordPress
 
-## Expanding the ESLint configuration
+- « Empleo de PHP, HTMLS5, JavaScript y CSS para optimizar la apariencia y el funcionamiento del sitio web
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- \+ Uso del plugin YOASTseo para mejorar el posicionamiento, uso de Google Tag y Search Console
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- \+ Puesta en funcionamiento de tienda con plataforma de pago RedSys
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Encargado de produccién - Simplicity Works Europe S.L. (Elche)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+FEBRERO 2015 - OCTUBRE 2024
 
-```
+- \+ Organizacién para la produccién (control de stocks, supervision de notas de produccién)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- « Supervision de los procesos de fabricacion
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- \+ con proveedores y clientes
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- \+ Supervision de operaciones de aparado de muestras y prototipos
 
-```
+## APTITUDES
+
+- \+ Word, Excel, Power Point
+
+- « Express, React
+
+- \+ PHP, Wordpress, Laravel
+
+- \+ Canva
+
+- Photoshop
+
+- \+ Adobe illustrator
+
+(+34) 622 035 924 angelt.guillo@gmail.com Santa Pola (Alicante)
+
+## HABILIDADES
+
+Creativo
+
+Trabajo en equipo Responsable y resolutivo
+
+## IDIOMAS
+
+- « Espafiol (Nativo)
+
+- « Valenciano (Alto)
+
+- « Francés (Intermedio)
+
+- « Inglés (Basico)
+
+## Disefiador grafico y Juetista - Fotos Molina (Alicante)
+
+OCTUBRE 2008 - MARZO 2009
+
+- « Disefio y maquetacion de albumes de boda, atencion al cliente, venta de material fotografico, fotos de carnet.
+
+## OTROS DATOS
+
+Carnet de conducir
+
+Coche propio
+
+## FORMACION
+
+## Curso desarrollo web fullstack - CodeSpace Academy (A distancia)
+
+EN CURSO
+
+- « Control de versiones usando GIT y GitHub
+
+- « Desarrollo frontend usando HTML5, CSS y JavaScript nativos en profundidad
+
+- « Bases de datos SQL(MySQL) y NoSQL(MongoDB)
+
+- « Uso de librerias populares en JS y TS para backend y frontend (Express, React)
+
+## Confeccién y publicacién de paginas web - Centro de estudios Gesfor (Elche)
+
+ENERO 2025 - OCTUBRE 2025
+
+- Fundamentos del disefio web HTML5, JavaScript, CSS, PHP
+
+- « Publicacion de webs y administraciéon con un panel basico del servidor
+
+- « Trabajar con Wordpress usando Elementor, Divi y Flatsome
+
+- « Uso de librerias y frameworks (Bootstrap, GSAP)
+
+
+## OTRA FORMACION
+
+## FP superior Disefio y confeccién de calzado - IES La Torreta (Elda)
+
+SEPTIEMBRE 2013 - JUNIO 2015
+
+## FP medio Imagen Fotografica - IES Garcia Berlanga (San Juan)
+
+SEPTIEMBRE 2007 - JUNIO 2009
