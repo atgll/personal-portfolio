@@ -1,0 +1,333 @@
+/* ========================================
+   UTILITY CLASSES - TEXT
+   ======================================== */
+.text-center {
+    text-align: center;
+}
+
+.text-start {
+    text-align: start;
+}
+
+.text-end {
+    text-align: end;
+}
+
+
+/* ========================================
+   UTILITY CLASSES - COLORS
+   ======================================== */
+.text-primary {
+    color: var(--Primary);
+}
+
+.text-secondary {
+    color: var(--Secondary);
+}
+
+.text-black {
+    color: var(--Black);
+}
+
+.text-accent {
+    color: var(--Accent);
+}
+
+.text-white {
+    color: var(--White);
+}
+
+/* ========================================
+   UTILITY CLASSES - FONT WEIGHT
+   ======================================== */
+
+.bold-text {
+    font-weight: 900;
+}
+
+.thin-text {
+    font-weight: 300;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+/*========================================
+UTILITY CLASSES - FONT SIZE
+========================================*/
+.fs-xs {
+    font-size: 0.6em;
+}
+
+.fs-s {
+    font-size: 0.8em;
+}
+
+.fs-m {
+    font-size: 1em;
+}
+
+.fs-l {
+    font-size: 1.25em;
+}
+
+.fs-xl {
+    font-size: 1.5em;
+}
+
+.fs-xxl {
+    font-size: 2em;
+}
+
+.subtitle-size {
+    font-size: clamp(2em, 3vw, 3.2em);
+}
+
+/* ========================================
+   UTILITY CLASSES - MARGIN
+   ======================================== */
+.m-0 {
+    margin: 0;
+}
+
+.m-sm {
+    margin: 0.5rem;
+}
+
+.m-1 {
+    margin: 1rem;
+}
+
+.m-2 {
+    margin: 1.25rem;
+}
+
+.m-3 {
+    margin: 1.5rem;
+}
+
+.m-4 {
+    margin: 2rem;
+}
+
+.m-5 {
+    margin: 3rem;
+}
+
+.mb-sm {
+    margin-bottom: 0.5rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 1.25rem;
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
+}
+
+.mb-5 {
+    margin-bottom: 3rem;
+}
+
+.mb-xl {
+    margin-bottom: 4rem;
+}
+
+/* ========================================
+   UTILITY CLASSES - PADDING
+   ======================================== */
+.p-0 {
+    padding: 0;
+}
+
+.p-1 {
+    padding: 1rem;
+}
+
+.p-2 {
+    padding: 1.25rem;
+}
+
+.p-3 {
+    padding: 1.5rem;
+}
+
+.p-4 {
+    padding: 2rem;
+}
+
+.p-5 {
+    padding: 3rem;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.pb-1 {
+    padding-bottom: 1rem;
+}
+
+.pb-2 {
+    padding-bottom: 1.25rem;
+}
+
+.pb-3 {
+    padding-bottom: 1.5rem;
+}
+
+.pb-4 {
+    padding-bottom: 2rem;
+}
+
+.pb-5 {
+    padding-bottom: 3rem;
+}
+
+/* ========================================
+   UTILITY CLASSES - BACKGROUND
+   ======================================== */
+.bg-light-blue {
+    background-color: var(--Bg-light-blue);
+}
+
+.bg-dark-grey {
+    background: var(--Primary);
+}
+
+/*========================================
+UTILITIES CLASSES - IMAGES
+========================================*/
+
+.greyscale {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.greyscale:hover.hover-effect {
+    filter: none
+}
+
+.zoom-effect:hover {
+    transform: scale(1.2);
+}
+
+/* ========================================
+   UTILITY CLASSES - FLEXBOX
+   ======================================== */
+.d-flex {
+    display: flex;
+}
+
+.d-flex.column {
+    flex-direction: column;
+}
+
+.d-flex.justify-center {
+    justify-content: center;
+}
+
+.d-flex.justify-start {
+    justify-content: start;
+}
+
+.d-flex.justify-end {
+    justify-content: end;
+}
+
+.d-flex.justify-between {
+    justify-content: space-between;
+}
+
+.d-flex.justify-around {
+    justify-content: space-around;
+}
+
+.d-flex.align-center {
+    align-items: center;
+}
+
+.d-flex.align-start {
+    align-items: start;
+}
+
+.d-flex.align-end {
+    align-items: end;
+}
+
+.gap-1 {
+    gap: 1rem;
+}
+
+.gap-2 {
+    gap: 1.25rem;
+}
+
+.gap-3 {
+    gap: 1.5rem;
+}
+
+.gap-4 {
+    gap: 2rem;
+}
+
+/*========================================
+UTILITY CLASSES - GRID
+========================================*/
+.d-grid {
+    display: grid;
+}
+
+.d-grid.columns-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.d-grid.columns-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.d-grid.columns-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.d-grid.span-right {
+    grid-template-columns: 1fr 1.5fr;
+}
+
+/* ========================================
+   UTILITY CLASSES - RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    .d-grid {
+        display: grid;
+    }
+
+    .hide-sm {
+        overflow: hidden;
+    }
+
+    .d-grid.columns-2,
+    .d-grid.columns-3,
+    .d-grid.columns-4,
+    .d-grid.span-right {
+        grid-template-columns: 1fr;
+    }
+}

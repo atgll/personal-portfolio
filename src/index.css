@@ -1,0 +1,802 @@
+/* ========================================
+   1. IMPORTS
+   ======================================== */
+@import 'styles/css/reset.css';
+@import 'styles/css/utilities.css';
+@import url('https://fonts.googleapis.com/css2?family=Megrim&family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;900&display=swap');
+
+/* ========================================
+   2. VIEW TRANSITIONS
+   ======================================== */
+@view-transition {
+    navigation: auto;
+}
+
+/* ========================================
+   3. CSS VARIABLES
+   ======================================== */
+:root {
+    /* Colors */
+    --Primary: #2B2B2B;
+    --Secondary: #D9D9D9;
+    --Black: #000000;
+    --Accent: #2BD70A;
+    --White: #FFFFFF;
+    --Overlay: #000000CC;
+    --bg-dark-grey: #3f3f3f;
+    --Bg-light-blue: #F9FAFD;
+
+    /* Layout */
+    --content-max-width: 1400px;
+    --content-padding: clamp(1rem, 4vw, 2rem);
+    --section-padding-y: clamp(2.5rem, 3vw, 4rem);
+
+    /* Transitions */
+    --transition-fast: 0.3s ease;
+    --transition-smooth: 0.4s cubic-bezier(.4, 0, .2, 1);
+}
+
+/* ========================================
+   4. BASE STYLES
+   ======================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+/* ========================================
+   5. TYPOGRAPHY
+   ======================================== */
+@font-face {
+    font-family: 'Garet';
+    src: url('./styles/fonts/Garet-Heavy.woff2') format('woff2');
+    font-style: normal;
+    font-display: swap;
+}
+
+.garet-splash {
+    font-family: 'Garet', sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.09em;
+}
+
+.zen-new {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-style: normal;
+}
+
+.zen-antique {
+    font-family: "Zen Kaku Gothic Antique", sans-serif;
+    font-style: normal;
+}
+
+.megrim {
+    font-family: "Megrim", system-ui;
+    font-style: normal;
+    letter-spacing: 0.5em;
+}
+
+/* ========================================
+   6. VIEW TRANSITION ANIMATIONS
+   ======================================== */
+
+/* Logo Block */
+::view-transition-group(logo-block) {
+    animation-duration: 0.75s;
+    animation-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+
+::view-transition-old(logo-block),
+::view-transition-new(logo-block) {
+    height: auto;
+    overflow: visible;
+}
+
+/* Main Nav */
+::view-transition-group(main-nav) {
+    animation-duration: 0.75s;
+    animation-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+
+::view-transition-old(main-nav),
+::view-transition-new(main-nav) {
+    overflow: visible;
+}
+
+/* About Image */
+::view-transition-group(about-image) {
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+
+::view-transition-old(about-image),
+::view-transition-new(about-image) {
+    object-fit: cover;
+    overflow: visible;
+}
+
+/* Projects Image */
+::view-transition-group(projects-image) {
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+
+::view-transition-old(projects-image),
+::view-transition-new(projects-image) {
+    object-fit: cover;
+    overflow: visible;
+}
+
+/* Contact Image */
+::view-transition-group(contact-image) {
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+
+::view-transition-old(contact-image),
+::view-transition-new(contact-image) {
+    object-fit: cover;
+    overflow: visible;
+}
+
+/*Page title*/
+::view-transition-old(pageTitle),
+::view-transition-new(pageTitle) {
+    animation-duration: 0.75s;
+    animation-timing-function: cubic-bezier(.4, 0, .2, 1);
+}/*Page title*/
+::view-transition-old(pageTitle) {
+    animation: slideOutUp 0.75s cubic-bezier(.4, 0, .2, 1) forwards;
+}
+
+::view-transition-new(pageTitle) {
+    animation-delay: 0.25s;
+    animation: slideInDown 0.75s cubic-bezier(.4, 0, .2, 1) forwards;
+}
+
+@keyframes slideOutUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   7. LAYOUT CONTAINERS
+   ======================================== */
+.header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem clamp(1rem, 8.5vw, 9.4rem);
+    background: var(--White);
+    box-sizing: border-box;
+}
+
+.header-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-block: var(--section-padding-y);
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-dark-grey);
+}
+
+.wrapper {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin-inline: auto;
+    padding-inline: var(--content-padding);
+    box-sizing: border-box;
+}
+
+.section-title {
+    view-transition-name: pageTitle;
+}
+
+.page-section-title {
+    view-transition-name: pageTitle;
+}
+
+/* ========================================
+   8. HEADER COMPONENTS
+   ======================================== */
+
+/* Nav Logo - Con View Transition */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    view-transition-name: logo-block !important;
+    contain: layout;
+}
+
+.nav-logo p {
+    font-size: 1.25em;
+}
+
+.logo {
+    font-family: 'Garet', sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.15em;
+    color: var(--Primary);
+    font-size: clamp(4.5em, 6vw, 7.5em);
+}
+
+/* Nav - Con View Transition */
+.header nav {
+    view-transition-name: main-nav !important;
+    contain: paint;
+}
+
+/* ========================================
+   9. PAGE-SPECIFIC STYLES
+   ======================================== */
+
+/* === HOME === */
+.home-header-section {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.home-nav-logo {
+    font-size: 1rem;
+}
+
+.home-nav {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+/* === PAGES (about, projects, contact) === */
+.page-header-section {
+    justify-content: space-between;
+}
+
+.page-nav-logo {
+    font-size: 0.6rem;
+}
+
+.page-nav {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* ========================================
+   10. CARDS
+   ======================================== */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1px;
+}
+
+.card-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    background: var(--White);
+}
+
+.card-home:hover {
+    color: var(--Accent);
+    border-color: var(--Bg-light-blue);
+}
+
+.card-home-image {
+    width: 100%;
+    margin: 0;
+}
+
+.card-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    transition: transform 0.5s ease;
+}
+
+.card-image-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 20px 10px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    transition: box-shadow 0.4s ease-out;
+    z-index: 1;
+}
+
+.card-home:hover .card-image-wrapper::after {
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.card-home-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Figcaption centrado */
+.card-home-image figcaption {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+/* Card About - View Transition */
+.card-about,
+.card-projects,
+.card-contact .card-image-wrapper {
+    overflow: visible;
+}
+
+.card-about .card-image-wrapper img {
+    view-transition-name: about-image !important;
+    contain: paint;
+}
+
+.card-projects .card-image-wrapper img {
+    view-transition-name: projects-image !important;
+    contain: paint;
+}
+
+.card-contact .card-image-wrapper img {
+    view-transition-name: contact-image !important;
+    contain: paint;
+}
+
+/* ========================================
+   11. LINKS
+   ======================================== */
+.link {
+    color: var(--Primary);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color var(--transition-fast);
+}
+
+.link:hover,
+.link.active {
+    cursor: pointer;
+    color: var(--Accent);
+    font-weight: 500;
+}
+
+/*=====================================
+   12.BUTTONS
+=====================================*/
+
+.btn {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.25rem;
+    display: inline-block;
+    padding: 0.5em 2em;
+    text-decoration: none;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.btn.btn-primary {
+    background-color: var(--Primary);
+    color: var(--White);
+    border: 1px solid var(--Primary);
+    border-radius: 64px;
+}
+
+.btn:hover {
+    background-color: var(--White);
+    color: var(--Accent);
+    border: 1px solid var(--Accent);
+}
+
+/* ========================================
+   13. ABOUT PAGE
+   ======================================== */
+.about {
+    gap: 0;
+}
+
+.about-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    view-transition-name: about-image !important;
+    contain: paint;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 1.5rem;
+    padding: clamp(1rem, 4vw, 3rem);
+}
+
+/*=============================
+   14. PROJECTS PAGE
+   ======================================== */
+
+.projects {
+    gap: 0;
+}
+
+.projects-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.projects-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    view-transition-name: projects-image !important;
+    contain: paint;
+}
+
+.projects-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0.8rem;
+    padding: clamp(0rem, 3vw, 2rem);
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.lista-proyectos {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 0 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.lista-proyectos li {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 100%;
+    max-width: 100%;
+}
+
+.proyectos-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    background-color: var(--Bg-light-blue);
+    border-bottom: 1px solid var(--Secondary);
+}
+
+.proyectos-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.imagen-proyecto {
+    width: 35%;
+    aspect-ratio: 16/9;
+}
+
+.imagen-proyecto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/*========================================
+   15. CONTACT PAGE
+   ======================================== */
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 1.5rem;
+    padding: clamp(1rem, 4vw, 3rem);
+}
+
+.contact-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    view-transition-name: contact-image !important;
+    contain: paint;
+}
+
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+.formulario-contacto label {
+    display: flex;
+    flex-direction: column;
+    min-width: 75%;
+    max-width: 90%;
+    gap: 0.8rem;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+    width: 100%;
+    padding: .5em;
+    border: 1px solid var(--Secondary);
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.formulario-contacto textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/*========================================
+   16. FOOTER
+   ======================================== */
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Secondary);
+    color: var(--Primary);
+    padding: 1rem;
+    min-height: 125px;
+}
+
+.logo-footer {
+    font-family: 'Garet', sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.15em;
+    color: var(--Primary);
+    font-size: clamp(3.5em, 4vw, 4.2em);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+}
+
+/* ========================================
+   17. SPLASH SCREEN
+   ======================================== */
+.splash {
+    background-color: var(--Bg-light-blue);
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: splashOut 0.5s ease-out 3.5s forwards;
+}
+
+/* Ocultar splash si ya se mostró (controlado por JS) */
+.splash-hidden {
+    display: none;
+}
+
+/* CAJA */
+.logo-box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: var(--White);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+        ". letters-container ."
+        ". letters-container ."
+        ". . .";
+    align-items: center;
+    overflow: hidden;
+}
+
+/* LETTERS POSITIONING */
+.letters-container {
+    position: relative;
+    grid-area: letters-container;
+}
+
+.letter {
+    font-size: 7.5rem;
+    position: absolute;
+    color: var(--Primary);
+}
+
+/* Posiciones iniciales (fuera de la caja) */
+.a {
+    transform: translate(-155px, -65px);
+    animation: slideA 0.4s ease-out forwards;
+}
+
+.t {
+    transform: translate(130px, -7px);
+    animation: slideT 0.4s ease-out 0.6s forwards;
+}
+
+.g {
+    transform: translate(-46px, 120px);
+    animation: slideG 0.4s ease-out 0.8s forwards;
+}
+
+@keyframes slideA {
+    to {
+        transform: translate(-45px, -65px);
+    }
+}
+
+@keyframes slideT {
+    to {
+        transform: translate(20px, -7px);
+    }
+}
+
+@keyframes slideG {
+    to {
+        transform: translate(-46px, 17px);
+    }
+}
+
+/* Border lines */
+.line {
+    position: absolute;
+    background: var(--Primary);
+}
+
+.top {
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 0;
+    animation: drawTop 0.3s ease-out 1s forwards;
+}
+
+.right {
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 0;
+    animation: drawRight 0.3s ease-out 1.3s forwards;
+}
+
+.bottom {
+    bottom: 0;
+    right: 0;
+    height: 10px;
+    width: 0;
+    animation: drawBottom 0.3s ease-out 1.6s forwards;
+}
+
+.left {
+    bottom: 0;
+    left: 0;
+    width: 10px;
+    height: 0;
+    animation: drawLeft 0.3s ease-out 1.9s forwards;
+}
+
+@keyframes drawTop {
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes drawRight {
+    to {
+        height: 100%;
+    }
+}
+
+@keyframes drawBottom {
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes drawLeft {
+    to {
+        height: 100%;
+    }
+}
+
+@keyframes splashOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+/* ========================================
+   18. MEDIA QUERIES
+   ======================================== */
+@media (max-width: 768px) {
+
+    .about-image {
+        aspect-ratio: 16/9;
+    }
+
+    .projects-image img {
+        object-fit: cover;
+    }
+
+    .projects-text {
+        order: -1;
+    }
+
+    .contact-text {
+        order: -1;
+    }
+
+    .imagen-proyecto {
+        width: 100%;
+    }
+
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+
+}
