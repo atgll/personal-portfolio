@@ -2,47 +2,47 @@
 
 ### Junior Web Developer
 
+(+34) 622 035 924 angelt.guillo@gmail.com Santa Pola (Alicante)
+
 ## EXPERIENCIA
 
-### __Editor web de practicas__ - llisat S.L. (Elche)
+### Editor web de prácticas - Ilisat S.L. (Elche)
 
 OCTUBRE 2025
 
-- « Gestion y mantenimiento del sitio web de la empresa, edicion y publicacion a través de WordPress
+- Gestion y mantenimiento del sitio web de la empresa, edición y publicación a través de WordPress
 
-- « Empleo de PHP, HTMLS5, JavaScript y CSS para optimizar la apariencia y el funcionamiento del sitio web
+- Empleo de PHP, HTMLS5, JavaScript y CSS para optimizar la apariencia y el funcionamiento del sitio web
 
-- \+ Uso del plugin YOASTseo para mejorar el posicionamiento, uso de Google Tag y Search Console
+- Uso del plugin YOASTseo para mejorar el posicionamiento, uso de Google Tag y Search Console
 
-- \+ Puesta en funcionamiento de tienda con plataforma de pago RedSys
+- Puesta en funcionamiento de tienda con plataforma de pago RedSys
 
-Encargado de produccién - Simplicity Works Europe S.L. (Elche)
+### Encargado de producción - Simplicity Works Europe S.L. (Elche)
 
 FEBRERO 2015 - OCTUBRE 2024
 
-- \+ Organizacién para la produccién (control de stocks, supervision de notas de produccién)
+- Organización para la producción (control de stocks, supervision de notas de producción)
 
-- « Supervision de los procesos de fabricacion
+- Supervisión de los procesos de fabricación
 
-- \+ con proveedores y clientes
+- Contacto y con proveedores y clientes
 
-- \+ Supervision de operaciones de aparado de muestras y prototipos
+- Supervision de operaciones de aparado de muestras y prototipos
 
 ## APTITUDES
 
-- \+ Word, Excel, Power Point
+- Word, Excel, Power Point
 
-- « Express, React
+- Express, React
 
-- \+ PHP, Wordpress, Laravel
+- PHP, Wordpress, Laravel
 
-- \+ Canva
+- Canva
 
 - Photoshop
 
-- \+ Adobe illustrator
-
-(+34) 622 035 924 angelt.guillo@gmail.com Santa Pola (Alicante)
+- Adobe illustrator
 
 ## HABILIDADES
 
@@ -52,19 +52,19 @@ Trabajo en equipo Responsable y resolutivo
 
 ## IDIOMAS
 
-- « Espafiol (Nativo)
+- Español (Nativo)
 
-- « Valenciano (Alto)
+- Valenciano (Alto)
 
-- « Francés (Intermedio)
+- Francés (Intermedio)
 
-- « Inglés (Basico)
+- Inglés (Basico)
 
-## Disefiador grafico y Juetista - Fotos Molina (Alicante)
+## Diseñador gráfico y maquetador - Fotos Molina (Alicante)
 
 OCTUBRE 2008 - MARZO 2009
 
-- « Disefio y maquetacion de albumes de boda, atencion al cliente, venta de material fotografico, fotos de carnet.
+- Diseño y maquetación de álbumes de boda, atención al cliente, venta de material fotográfico, fotos de carnet.
 
 ## OTROS DATOS
 
@@ -72,39 +72,39 @@ Carnet de conducir
 
 Coche propio
 
-## FORMACION
+## FORMACIÓN
 
 ## Curso desarrollo web fullstack - CodeSpace Academy (A distancia)
 
 EN CURSO
 
-- « Control de versiones usando GIT y GitHub
+- Control de versiones usando GIT y GitHub
 
-- « Desarrollo frontend usando HTML5, CSS y JavaScript nativos en profundidad
+- Desarrollo frontend usando HTML5, CSS y JavaScript nativos en profundidad
 
-- « Bases de datos SQL(MySQL) y NoSQL(MongoDB)
+- Bases de datos SQL(MySQL) y NoSQL(MongoDB)
 
-- « Uso de librerias populares en JS y TS para backend y frontend (Express, React)
+- Uso de librerías populares en JS y TS para backend y frontend (Express, React)
 
-## Confeccién y publicacién de paginas web - Centro de estudios Gesfor (Elche)
+## Confección y publicación de páginas web - Centro de estudios Gesfor (Elche)
 
 ENERO 2025 - OCTUBRE 2025
 
-- Fundamentos del disefio web HTML5, JavaScript, CSS, PHP
+- Fundamentos del diseño web HTML5, JavaScript, CSS, PHP
 
-- « Publicacion de webs y administraciéon con un panel basico del servidor
+- Publicación de webs y administración con un panel básico del servidor
 
-- « Trabajar con Wordpress usando Elementor, Divi y Flatsome
+- Trabajar con WordPress usando Elementor, Divi y Flatsome
 
-- « Uso de librerias y frameworks (Bootstrap, GSAP)
+- Uso de librerías y frameworks (Bootstrap, GSAP)
 
 
-## OTRA FORMACION
+## OTRA FORMACIÓN
 
-## FP superior Disefio y confeccién de calzado - IES La Torreta (Elda)
+## FP grado superior Diseño y confección de calzado - IES La Torreta (Elda)
 
 SEPTIEMBRE 2013 - JUNIO 2015
 
-## FP medio Imagen Fotografica - IES Garcia Berlanga (San Juan)
+## FP grado medio Imagen Fotográfica - IES Garcia Berlanga (San Juan)
 
 SEPTIEMBRE 2007 - JUNIO 2009
