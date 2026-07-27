@@ -13,6 +13,7 @@ export default function ProjectsContent() {
 
 function ProjectsContainer() {
     return(
-        <></>
+        <>
+        </>
     )
 }
