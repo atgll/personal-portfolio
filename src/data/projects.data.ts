@@ -3,7 +3,7 @@ import img1Ilisat from '../assets/projects-imgs/ilisat/capture-hero-ilisat.webp'
 import img2Ilisat from '../assets/projects-imgs/ilisat/captura-hro-tienda-ilisat.webp'
 import img1Ray from '../assets/projects-imgs/rayeames/ray-eames.webp'
 import img2Ray from '../assets/projects-imgs/rayeames/Captura-de-pantalla-2025-11-22-143926-e1764076745128.webp'
-import {css, git, js, mongodb} from "./stack.data.ts";
+import {css, git, js, mongodb, nodeJs} from "./stack.data.ts";
 
 
 export const projects: ProjectI[] = [
@@ -15,7 +15,7 @@ export const projects: ProjectI[] = [
         end: '01-11-2025',
         images: [img1Ilisat, img2Ilisat],
         link: 'https://ilisat.com/',
-        techStack: [css,js, git]
+        techStack: [nodeJs, css, js]
     },
     {
         id: 2,

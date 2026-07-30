@@ -60,8 +60,8 @@ const EmblaCarousel = (props: PropType) => {
                                 key={project.id}
                                 onClick={() => onThumbClick(index)}
                                 selected={index === selectedIndex}
-                                index={index}
                                 image={project.images[0]}
+                                title={project.title}
                             />
                         ))}
                     </div>

@@ -1,5 +1,7 @@
 import type {ReactElement} from "react";
 import {useLocation} from "react-router";
+import {tecnologies} from "../../data";
+import type {TechStackI} from "../../interfaces";
 
 export default function PageTitle(): ReactElement {
 
@@ -18,7 +20,8 @@ export default function PageTitle(): ReactElement {
             style={{width: 'fit-content'}}
         >
             <h2 className="garet-splash fs-xxl text-center" style={{letterSpacing: '0.05em'}}>
-                {isHome ? 'Welcome!' : title}
+                {isHome ? tecnologies.map((tech: TechStackI) => (
+                    <img className='zoom-effect' style={{width: '1em', margin: '0 1rem 0 0'}} src={tech.image} alt={`${tech.name} image`}/>)) : title}
             </h2>
         </div>
     )

@@ -1,12 +1,12 @@
 type PropType = {
     selected: boolean
-    index: number
     onClick: () => void
     image: string;
+    title: string;
 }
 
 export const Thumb = (props: PropType) => {
-    const { selected, index, onClick } = props
+    const { selected, onClick } = props
 
     return (
         <div
@@ -21,8 +21,8 @@ export const Thumb = (props: PropType) => {
                 className="embla-thumbs__slide__number"
                 style={{backgroundImage: `url(${props.image})`}}
             >
-                {index + 1}
             </button>
+            <p className='embla-thumbs__slide__title'>{props.title}</p>
         </div>
     )
 }
