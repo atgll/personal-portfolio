@@ -3,11 +3,9 @@ import ProjectsContent from "../components/projects/ProjectsContent.tsx";
 
 const Projects = () => {
     return(
-        <>
             <Container>
                 <ProjectsContent/>
             </Container>
-        </>
     )
 }
 

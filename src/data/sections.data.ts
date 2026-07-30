@@ -1,7 +1,7 @@
 import type {SiteSectionI} from "../interfaces";
-import aboutImg from '../assets/imagen-sobre-mi.webp';
-import projectsImg from '../assets/project-img.webp';
-import contactImg from '../assets/contact-img-ok.webp';
+import aboutImg from '../assets/site-images/imagen-sobre-mi.webp';
+import projectsImg from '../assets/site-images/project-img.webp';
+import contactImg from '../assets/site-images/contact-img-ok.webp';
 
 export const sections: SiteSectionI[] = [
     {

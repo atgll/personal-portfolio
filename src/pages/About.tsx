@@ -3,11 +3,9 @@ import AboutContent from "../components/about/AboutContent.tsx";
 
 const About = () => {
     return (
-        <>
             <Container>
                 <AboutContent/>
             </Container>
-        </>
     )
 }
 

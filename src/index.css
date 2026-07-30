@@ -3,6 +3,7 @@
    ======================================== */
 @import 'styles/css/reset.css';
 @import 'styles/css/utilities.css';
+@import "styles/css/embla.css";
 @import url('https://fonts.googleapis.com/css2?family=Megrim&family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;900&display=swap');
 
 /* ========================================
@@ -27,7 +28,7 @@
     --Bg-light-blue: #F9FAFD;
 
     /* Layout */
-    --content-max-width: 1400px;
+    --content-max-width: 1550px;
     --content-padding: clamp(1rem, 4vw, 2rem);
     --section-padding-y: clamp(2.5rem, 3vw, 4rem);
 
@@ -459,12 +460,17 @@ body {
    ======================================== */
 
 .projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-position: center;
+    background-size: cover;
     gap: 0;
+
 }
 
 .projects-image {
     width: 100%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1/2;
 }
 
 .projects-image img {
@@ -477,52 +483,36 @@ body {
 }
 
 .projects-text {
+    grid-column-start: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
-    gap: 0.8rem;
+    align-items: center;
+    gap: 1.5rem;
     padding: clamp(0rem, 3vw, 2rem);
     width: 100%;
     max-width: 100%;
     overflow: hidden;
 }
 
-.lista-proyectos {
-    display: flex;
-    flex-direction: row;
-    gap: 1.5rem;
-    padding: 0 1rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-}
-
-.lista-proyectos li {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-    width: 100%;
-    max-width: 100%;
-}
-
-.proyectos-item {
+.projects-item {
     display: flex;
     flex-direction: column;
-    padding: 0.5rem;
-    background-color: var(--Bg-light-blue);
-    border-bottom: 1px solid var(--Secondary);
-}
-
-.proyectos-card {
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    max-height: 500px;
+    min-height: 45vh;
     gap: 0.8rem;
 }
 
 .imagen-proyecto {
-    width: 35%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    z-index: -1;
+    width: 100%;
     aspect-ratio: 16/9;
 }
 

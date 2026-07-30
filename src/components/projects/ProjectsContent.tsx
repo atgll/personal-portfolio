@@ -1,19 +1,29 @@
-import {sections} from "../../data";
+import {projects} from "../../data";
+import {type ReactElement, type ReactNode} from "react";
+import EmblaCarousel from "../carousel/Carousel.tsx";
 
-export default function ProjectsContent() {
-    return(
-        <div className='projects d-grid span-right hide-sm'>
-            <div className='projects-image'>
-                <img src={sections[1].imgUrl} alt="Imagen sobre mi"/>
-            </div>
-            <ProjectsContainer/>
+export default function ProjectsContent(): ReactElement {
+    return (
+        <div className='projects hide-sm'>
+            <ProjectsContainer>
+                <EmblaCarousel projects={projects}
+                               options={{
+                                   loop: true,
+                                   align: 'center'
+                               }}/>
+            </ProjectsContainer>
         </div>
     )
 }
 
-function ProjectsContainer() {
-    return(
-        <>
-        </>
+function ProjectsContainer({children}: {children?: ReactNode}): ReactElement {
+    return (
+        <div className='projects-text zen-antique bg-light-blue'>
+            {children}
+        </div>
     )
 }
+
+
+
+

@@ -9,7 +9,6 @@ import {sections} from "../data";
 const Home = (): ReactElement => {
 
     return (
-        <>
             <Container>
                 <CardsContainer>
                     {
@@ -18,7 +17,6 @@ const Home = (): ReactElement => {
                     }
                 </CardsContainer>
             </Container>
-        </>
     )
 }
 
