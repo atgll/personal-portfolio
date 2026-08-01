@@ -12,7 +12,7 @@ export interface ProjectI {
     end?: string;
     images: string[];
     link?: string;
-    techStack?: TechStackI[];
+    techStack: TechStackI[];
 }
 
 export interface TechStackI {
