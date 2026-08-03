@@ -18,7 +18,7 @@ export default function ProjectsContent(): ReactElement {
 
 function ProjectsContainer({children}: {children?: ReactNode}): ReactElement {
     return (
-        <div className='projects-text zen-antique bg-light-blue'>
+        <div className='projects-text zen-antique'>
             {children}
         </div>
     )

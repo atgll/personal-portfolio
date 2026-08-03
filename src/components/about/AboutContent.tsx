@@ -8,9 +8,9 @@ export default function AboutContent() {
                 <div className="about-image">
                     <img className="greyscale" src={`${sections[0].imgUrl}`} alt="Imagen sobre mi"/>
                 </div>
-                <AboutText fontFamily='zen.new'>
+                <AboutText>
                     {
-                        texts.map((text: string) => (<AboutP fsize='fs-xl' font='zen-new' className={''} text={text}/>))
+                        texts.map((text: string) => (<AboutP fsize='fs-l' font={'garet-normal'} className={''} text={text}/>))
                     }
                 </AboutText>
             </div>
@@ -18,9 +18,9 @@ export default function AboutContent() {
     )
 }
 
-function AboutText({fontFamily, children}: {fontFamily: string; children?: ReactNode}): ReactElement {
+function AboutText({children}: {children?: ReactNode}): ReactElement {
     return (
-        <div className={`about-text bg-light-blue ${fontFamily}`}>
+        <div className={`about-text bg-light-blue`}>
             {children}
         </div>
     )
