@@ -65,27 +65,27 @@
 UTILITY CLASSES - FONT SIZE
 ========================================*/
 .fs-xs {
-    font-size: 0.6em;
+    font-size: 0.5rem;
 }
 
 .fs-s {
-    font-size: 0.8em;
+    font-size: 0.8rem;
 }
 
 .fs-m {
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 .fs-l {
-    font-size: 1.25em;
+    font-size: 1.5rem;
 }
 
 .fs-xl {
-    font-size: 1.5em;
+    font-size: 2rem;
 }
 
 .fs-xxl {
-    font-size: 2em;
+    font-size: 3rem;
 }
 
 .subtitle-size {
@@ -220,6 +220,16 @@ UTILITIES CLASSES - IMAGES
 .greyscale {
     filter: grayscale(100%);
     transition: filter 0.3s ease;
+}
+
+.low-saturation{
+    filter: saturate(50%);
+    transition: filter 0.3s ease;
+
+}
+
+.low-saturation:hover.hover-effect {
+    filter: saturate(75%);
 }
 
 .greyscale:hover.hover-effect {

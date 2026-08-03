@@ -4,12 +4,10 @@ import {NavLink} from "react-router";
 
 export default function ProjectsItem({project}: { project: ProjectI }): ReactElement {
     return (
-        <div className='projects-item'>
-            <div className='d-grid columns-2'>
-                <div className='d-flex column justify-between gap-2'>
-                    <div style={{marginBottom: 'auto', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-                        <NavLink to={`/projects/${project.id}`} className="fs-xxl text-primary fw-600 link"
-                                 style={{justifySelf: 'start'}}>{project.title}</NavLink>
+            <div className='d-grid columns-2 p-3 ' style={{backgroundColor: '#d9d9d9cc',backdropFilter: 'blur(16px)'}}>
+                <div className='d-flex column justify-between gap-2 p-1'>
+                    <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+                        <NavLink to={`/projects/${project.id}`} className="garet-normal fs-xl text-primary bold-text link">{project.title}</NavLink>
                         {
                             <div className='d-flex justify-start gap-2 align-center m-0'>
                                 <time className="fs-m fw-600 bg-dark-grey text-secondary" style={{padding: '0.5em 0.75em', borderRadius: '25px'}}
@@ -45,6 +43,5 @@ export default function ProjectsItem({project}: { project: ProjectI }): ReactEle
                 </NavLink>
 
             </div>
-        </div>
     )
 }
