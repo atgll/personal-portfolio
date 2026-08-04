@@ -4,7 +4,6 @@ import EmblaCarousel from "../carousel/Carousel.tsx";
 
 export default function ProjectsContent(): ReactElement {
     return (
-        <div className='projects hide-sm'>
             <ProjectsContainer>
                 <EmblaCarousel projects={projects}
                                options={{
@@ -12,13 +11,12 @@ export default function ProjectsContent(): ReactElement {
                                    align: 'center'
                                }}/>
             </ProjectsContainer>
-        </div>
     )
 }
 
 function ProjectsContainer({children}: {children?: ReactNode}): ReactElement {
     return (
-        <div className='projects-text zen-antique'>
+        <div className='projects'>
             {children}
         </div>
     )

@@ -25,7 +25,7 @@
     --White: #FFFFFF;
     --Overlay: #000000CC;
     --bg-dark-grey: #3f3f3f;
-    --Bg-light-blue: #F9FAFD;
+    --Bg-light-blue: rgb(249 250 253 / 0.5);
 
     /* Layout */
     --content-max-width: 1550px;
@@ -474,10 +474,15 @@ body {
    ======================================== */
 
 .projects {
-    background-position: center;
-    background-size: cover;
-    gap: 0;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: clamp(0rem, 2vw, 1rem);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .projects-image {
@@ -493,18 +498,6 @@ body {
     view-transition-name: projects-image !important;
     contain: paint;
 }
-
-.projects-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    padding: clamp(0rem, 2vw, 1rem);
-    width: 100%;
-    max-width: 100%;
-}
-
 
 
 .imagen-proyecto {
@@ -591,6 +584,14 @@ body {
     color: var(--Primary);
     padding: 1rem;
     min-height: 125px;
+}
+
+.footer-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: 2rem;
 }
 
 .logo-footer {
@@ -762,7 +763,7 @@ body {
 /* ========================================
    18. MEDIA QUERIES
    ======================================== */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
 
     .about-image {
         aspect-ratio: 16/9;
@@ -770,10 +771,6 @@ body {
 
     .projects-image img {
         object-fit: cover;
-    }
-
-    .projects-text {
-        order: -1;
     }
 
     .contact-text {
@@ -786,9 +783,21 @@ body {
 
     .cards-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
         gap: 1rem;
         padding: 0.5rem;
     }
+
+    .footer-display {
+        flex-direction: column;
+    }
+
+    .page-header-section {
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width: 400px) {
 
 }

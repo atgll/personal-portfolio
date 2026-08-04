@@ -65,27 +65,27 @@
 UTILITY CLASSES - FONT SIZE
 ========================================*/
 .fs-xs {
-    font-size: 0.5rem;
+    font-size: 0.5em;
 }
 
 .fs-s {
-    font-size: 0.8rem;
+    font-size: 0.8em;
 }
 
 .fs-m {
-    font-size: 1rem;
+    font-size: 1em;
 }
 
 .fs-l {
-    font-size: 1.5rem;
+    font-size: 1.5em;
 }
 
 .fs-xl {
-    font-size: 2rem;
+    font-size: 2em;
 }
 
 .fs-xxl {
-    font-size: 3rem;
+    font-size: 3em;
 }
 
 .subtitle-size {
@@ -245,6 +245,15 @@ UTILITIES CLASSES - IMAGES
    ======================================== */
 .d-flex {
     display: flex;
+    min-width: 0;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.nowrap {
+    flex-wrap: nowrap;
 }
 
 .d-flex.column {
@@ -325,7 +334,7 @@ UTILITY CLASSES - GRID
 /* ========================================
    UTILITY CLASSES - RESPONSIVE
    ======================================== */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .d-grid {
         display: grid;
     }
@@ -334,6 +343,15 @@ UTILITY CLASSES - GRID
         overflow: hidden;
     }
 
+    .d-grid.columns-2,
+    .d-grid.columns-3,
+    .d-grid.columns-4,
+    .d-grid.span-right {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 400px) {
     .d-grid.columns-2,
     .d-grid.columns-3,
     .d-grid.columns-4,

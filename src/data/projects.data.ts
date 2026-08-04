@@ -1,27 +1,27 @@
 import type {ProjectI} from "../interfaces";
-import dummyProjects from '../assets/site-images/project-img.webp'
+import portfolioHome from '../assets/projects-imgs/portfolio/portfolio-home.webp'
 import {css, git, js, mongodb, nodeJs} from "./stack.data.ts";
 
 
 export const projects: ProjectI[] = [
     {
         id: 1,
-        title: 'Próximamente',
-        description: 'Proyectos increíbles que harán buena muestara de mis capacidades',
-        start: '01-01-2026',
-        end: '01-01-2027',
-        images: [dummyProjects],
-        link: 'https://Próximamente.com',
+        title: 'Portfolio ATG',
+        description: 'Portfolio personal, centrado en una estética clara y limpia, una navegación fluida y un despliegue inteligente usando las plataformas y servicios más adecuados a cada necesidad',
+        start: '10-07-2026',
+        end: '',
+        images: [portfolioHome],
+        link: 'https://www.angeltorresweb.com/',
         techStack: [nodeJs, css, js, git, mongodb]
     },
     {
         id: 2,
-        title: 'Próximamente más proyectos',
-        description: 'Más proyectos increíbles',
-        start: '01-01-2026',
-        end: '01-01-2027',
-        images: [dummyProjects],
-        link: 'https://Próximamente.com',
+        title: 'Portfolio ATG',
+        description: 'Portfolio personal, centrado en una estética clara y limpia, una navegación fluida y un despliegue inteligente usando las plataformas y servicios más adecuados a cada necesidad',
+        start: '10-07-2026',
+        end: '',
+        images: [portfolioHome],
+        link: 'https://www.angeltorresweb.com/',
         techStack: [nodeJs, css, js, git, mongodb]
     }
 ]

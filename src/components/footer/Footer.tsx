@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer className='footer'>
             <div className='wrapper'>
-                <div className='d-flex justify-between align-center'>
+                <div className='footer-display'>
                     <LogoFooter/>
                     <Policies/>
                 </div>

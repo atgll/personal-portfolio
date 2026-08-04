@@ -1,34 +1,34 @@
 import type {TechStackI} from "../interfaces";
-import cssImage from '../assets/image-stack/HTML_y_CSS.png'
-import jsImage from '../assets/image-stack/Insignia_de_Javascript.png'
-import gitImage from '../assets/image-stack/GIT.png'
-import mongoImg from '../assets/image-stack/BBDD.png'
-import nodeImg from '../assets/image-stack/NodeJS.png'
+import { CssNew, Javascript, Git, Mongodb, Mongoose, Nodejs} from '@thesvg/react';
+
 
 export const css: TechStackI = {
     name: 'CSS',
-    image: cssImage
+    icon: CssNew
 }
 
 export const js: TechStackI = {
     name: 'JavaScript',
-    image: jsImage
+    icon: Javascript
 }
 
 export const git: TechStackI = {
     name: 'Git',
-    image: gitImage
+    icon: Git
 }
 
 export const mongodb: TechStackI = {
     name: 'MongoDB',
-    image: mongoImg
+    icon: Mongodb
 }
-
+export const mongooseTech: TechStackI = {
+    name: 'Mongoose',
+    icon: Mongoose
+}
 export const nodeJs: TechStackI = {
     name: 'NodeJs',
-    image: nodeImg
+    icon: Nodejs
 }
 
-export const tecnologies: TechStackI[] = [css, js, git, mongodb, nodeJs]
+export const technologies: TechStackI[] = [css, js, git, mongodb, mongooseTech, nodeJs]
 

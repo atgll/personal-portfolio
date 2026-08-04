@@ -1,3 +1,5 @@
+import type {ComponentType, SVGProps} from "react";
+
 export interface SiteSectionI {
     path: string;
     imgUrl: string;
@@ -17,5 +19,5 @@ export interface ProjectI {
 
 export interface TechStackI {
     name: string;
-    image: string;
+    icon: ComponentType<SVGProps<SVGSVGElement>>;
 }
