@@ -798,6 +798,11 @@ body {
 
 }
 
-@media (max-width: 400px) {
-
+@media (max-width: 600px) {
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        padding: 0.5rem;
+    }
 }
