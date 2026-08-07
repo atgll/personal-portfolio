@@ -5,6 +5,7 @@
 @import 'styles/css/utilities.css';
 @import "styles/css/embla.css";
 @import url('https://fonts.googleapis.com/css2?family=Megrim&family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* ========================================
    2. VIEW TRANSITIONS
@@ -72,6 +73,10 @@ body {
     letter-spacing: -0.09em;
 }
 
+.garet-title {
+    font-family: 'Garet', sans-serif;
+}
+
 .garet-normal {
     font-family: 'Garet-Book', sans-serif;
 }
@@ -91,6 +96,13 @@ body {
     font-style: normal;
     letter-spacing: 0.5em;
 }
+
+.inter-text {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
 
 /* ========================================
    6. VIEW TRANSITION ANIMATIONS
@@ -483,6 +495,17 @@ body {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    position: relative;
+    isolation: isolate;
+    backdrop-filter: blur(200px);
+}
+
+.projects::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 15%, rgba(204, 204, 204, 0.25) 50%, rgba(255, 255, 255, 0.15) 100%);
 }
 
 .projects-image {
@@ -516,6 +539,10 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.slide {
+    backdrop-filter: blur(100px);
 }
 
 /*========================================

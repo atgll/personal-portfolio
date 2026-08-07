@@ -4,7 +4,7 @@ import {NavLink} from "react-router";
 
 export default function ProjectsItem({project}: { project: ProjectI }): ReactElement {
     return (
-        <div className='d-grid columns-2'>
+        <div className='d-grid columns-2 slide' style={{minHeight: '500px'}}>
             <div className='d-flex column justify-between gap-4 p-1 garet-normal'>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
                     <NavLink to={`/projects/${project.id}`}
@@ -35,7 +35,7 @@ export default function ProjectsItem({project}: { project: ProjectI }): ReactEle
                         </div>
                     </div>
                 </div>
-                <p className="fs-l garet-normal">{project.description}</p>
+                <p className="fs-m inter-text">{project.description}</p>
                 <p className="fs-l garet-normal bold-text">Link: <NavLink
                     className="link"
                     to={`${project.link}`}>
@@ -45,9 +45,8 @@ export default function ProjectsItem({project}: { project: ProjectI }): ReactEle
             </div>
             <NavLink to={`/projects/${project.id}`} style={{}}>
                 <img style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block'}}
-                     src={project.images[0]}/>
+                     src={project.images[0]} alt={`${project.title} image`}/>
             </NavLink>
-
         </div>
     )
 }

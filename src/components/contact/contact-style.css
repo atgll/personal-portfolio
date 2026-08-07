@@ -1,0 +1,144 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    backdrop-filter: blur(200px);
+    padding: 2rem;
+    position: relative;
+    isolation: isolate;
+}
+
+.form-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 15%, rgba(204, 204, 204, 0.25) 50%, rgba(255, 255, 255, 0.15) 100%);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-form-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1em;
+    color: white;
+}
+
+.contact-form-input {
+    padding: 0.5em 1em;
+    box-shadow: 2px 4px var(--Primary);
+    font-size: 1em;
+}
+
+.contact-form-textarea {
+    min-height: 10em;
+    padding: 0.5em 1em;
+    box-shadow: 2px 4px var(--Primary);
+    font-size: 1em;
+}
+
+.contact-social-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 1rem;
+    backdrop-filter: blur(200px);
+    padding: 2rem;
+    position: relative;
+    isolation: isolate;
+}
+
+.contact-social-container:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 15%, rgba(204, 204, 204, 0.25) 50%, rgba(255, 255, 255, 0.15) 100%);
+}
+
+.social-cards-container {
+    margin: auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.social-card {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 1em;
+    justify-content: space-evenly;
+    backdrop-filter: blur(20px);
+    padding: 0.8rem;
+    border-radius: 1rem;
+    transition: padding 0.3s;
+    overflow: hidden;
+}
+
+.social-network {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.social-name {
+    align-self: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 10px;
+}
+
+.social-icon {
+    width: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.social-icon svg {
+    transition: all 0.3s ease;
+    transform-origin: right top;
+}
+
+.social-phrase p {
+    height: 0;
+    opacity: 0;
+    transition: height 0.3s ease-in,
+                opacity 0.35s ease-in;
+}
+
+.link-arrow {
+    opacity: 0;
+    transform: translate(-5px, 5px);
+    transition: all 0.35s ease;
+}
+
+.social-card:hover .link-arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.social-card:hover .social-phrase p {
+    opacity: 1;
+    height: 100%;
+}
+
+.social-card:hover .social-icon svg {
+    transform: scale(1.5) translate(-15px);
+}
+
+

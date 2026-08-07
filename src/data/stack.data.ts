@@ -1,5 +1,5 @@
 import type {TechStackI} from "../interfaces";
-import { CssNew, Javascript, Git, Mongodb, Mongoose, Nodejs} from '@thesvg/react';
+import { CssNew, Javascript, Git, Mongodb, Mongoose, Nodejs, React} from '@thesvg/react';
 
 
 export const css: TechStackI = {
@@ -30,5 +30,10 @@ export const nodeJs: TechStackI = {
     icon: Nodejs
 }
 
-export const technologies: TechStackI[] = [css, js, git, mongodb, mongooseTech, nodeJs]
+export const reactJs: TechStackI = {
+    name: 'React',
+    icon: React
+}
+
+export const technologies: TechStackI[] = [css, js, git, mongodb, mongooseTech, nodeJs, reactJs]
 

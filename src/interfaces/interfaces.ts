@@ -21,3 +21,10 @@ export interface TechStackI {
     name: string;
     icon: ComponentType<SVGProps<SVGSVGElement>>;
 }
+
+export interface SocialContactI {
+    name: string;
+    icon: ComponentType<SVGProps<SVGSVGElement>>;
+    link: string;
+    phrase: string;
+}
