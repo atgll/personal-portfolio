@@ -3,7 +3,7 @@ import {useState} from "react";
 
 export default function ContactMessage() {
 
-    const [success, setSucces] = useState(false);
+    const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
     const [isSending, setIsSending] = useState(false);
 
@@ -13,25 +13,30 @@ export default function ContactMessage() {
             event.preventDefault();
 
             setError(false);
-            setSucces(false);
+            setSuccess(false);
             setIsSending(true);
 
             const form = event.currentTarget;
             const formData = new FormData(form);
 
+            const data = Object.fromEntries(formData.entries());
+
             const response = await fetch("/api/contact", {
                 method: "POST",
-                body: formData,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data),
             });
 
             if(!response.ok) {
-                throw new Error('No se pudo enviar el mensaje');
                 setError(true);
+                throw new Error('No se pudo enviar el mensaje');
             }
 
             form.reset();
 
-            setSucces(true);
+            setSuccess(true);
 
 
         } catch (e) {

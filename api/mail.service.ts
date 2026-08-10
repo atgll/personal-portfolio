@@ -1,11 +1,11 @@
-import nodemailer from 'nodemailer'
+import nodemailer from 'nodemailer';
 import {env} from "./env.config";
 
 interface ContactMessageI {
     email: string;
-    name: string;
-    message: string;
-    subject: string;
+    nombre: string;
+    mensaje: string;
+    asunto: string;
 }
 
 const transporter = nodemailer.createTransport({
@@ -18,14 +18,14 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-export const sendMail = async ({email, message, subject, name}: ContactMessageI): Promise<void> => {
+export const sendMail = async ({email, mensaje, asunto, nombre}: ContactMessageI): Promise<void> => {
     try {
         const mailOptions = {
             from: env.from,
             to: env.to,
             replyTo: email,
-            subject: `Portfolio ${subject}`,
-            text: `Nombre: ${name}\n Email: ${email} \n Mensaje: ${message}`,
+            subject: `Portfolio ${asunto}`,
+            text: `Nombre: ${nombre}\n Email: ${email} \n Mensaje: ${mensaje}`,
         }
 
         await transporter.sendMail(mailOptions);
