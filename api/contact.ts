@@ -1,7 +1,8 @@
-import { sendMail } from "./mail.service";
+import {VercelRequest, VercelResponse} from '@vercel/node'
+import {sendMail} from "./mail.service";
 
-export default async function handler(request: Request): Promise<Response> {
-    if (request.method !== "POST") {
+export default async function handler(req: VercelRequest, res: VercelResponse): Promise<Response> {
+    if (req.method !== "POST") {
         return Response.json(
             { error: "Method not allowed" },
             { status: 405 }
@@ -9,13 +10,13 @@ export default async function handler(request: Request): Promise<Response> {
     }
 
     try {
-        const formData = await request.formData();
-
-        const email = formData.get("email");
-        const name = formData.get("nombre");
-        const subject = formData.get("asunto");
-        const message = formData.get("mensaje");
-        const thePit = formData.get("thePit");
+        const {
+            email,
+            nombre,
+            asunto,
+            mensaje,
+            thePit,
+        } = req.body;
 
         // Honeypot: si está relleno, probablemente sea un bot
         if (thePit) {
@@ -28,9 +29,9 @@ export default async function handler(request: Request): Promise<Response> {
         // Comprobamos que todos los valores sean strings
         if (
             typeof email !== "string" ||
-            typeof name !== "string" ||
-            typeof subject !== "string" ||
-            typeof message !== "string"
+            typeof nombre !== "string" ||
+            typeof asunto !== "string" ||
+            typeof mensaje !== "string"
         ) {
             return Response.json(
                 { error: "Missing or invalid fields" },
@@ -50,22 +51,22 @@ export default async function handler(request: Request): Promise<Response> {
 
         // Límites básicos
         if (
-            name.length > 50 ||
+            nombre.length > 50 ||
             email.length > 120 ||
-            subject.length > 75 ||
-            message.length > 500 || message.length < 25
+            asunto.length > 75 ||
+            mensaje.length > 500 || mensaje.length < 25
         ) {
             return Response.json(
-                { error: "Message too long" },
+                { error: "Message length invalid" },
                 { status: 400 }
             );
         }
 
         await sendMail({
             email,
-            name,
-            subject,
-            message,
+            nombre,
+            asunto,
+            mensaje,
         });
 
         return Response.json(
