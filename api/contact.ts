@@ -1,5 +1,5 @@
 import {VercelRequest, VercelResponse} from '@vercel/node'
-import {resMail, sendMail} from "./mail.service";
+import {resMail, sendMail} from "./mail.service.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void> {
 
