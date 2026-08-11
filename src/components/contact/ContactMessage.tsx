@@ -29,12 +29,26 @@ export default function ContactMessage() {
                 body: JSON.stringify(data),
             });
 
-            const respuesta = await response.json();
 
-            if(!response.ok) {
-                console.error('API ERROR', respuesta)
+            const contentType = response.headers.get("content-type");
+
+            let respuesta: { error?: string };
+
+            if(contentType?.includes("application/json")) {
+                respuesta = await response.json();
+            } else {
+                const text = await response.text();
+
+                respuesta = {
+                    error: text || "Error del servidor",
+                };
+            }
+
+
+            if (!response.ok) {
+                console.error("API ERROR:", respuesta);
                 setError(true);
-                throw new Error(respuesta.error || 'No se pudo enviar el mensaje');
+                return;
             }
 
             form.reset();

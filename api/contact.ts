@@ -70,10 +70,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
             mensaje,
         });
 
-        await resMail({
+   /*     await resMail({
             email,
             nombre
-        })
+        })*/
 
         res.status(200).json(
             { success: true },
