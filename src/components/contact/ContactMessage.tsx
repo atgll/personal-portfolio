@@ -29,9 +29,12 @@ export default function ContactMessage() {
                 body: JSON.stringify(data),
             });
 
+            const respuesta = await response.json();
+
             if(!response.ok) {
+                console.error('API ERROR', respuesta)
                 setError(true);
-                throw new Error('No se pudo enviar el mensaje');
+                throw new Error(respuesta.error || 'No se pudo enviar el mensaje');
             }
 
             form.reset();
@@ -73,11 +76,11 @@ export default function ContactMessage() {
                 </label>
                 <label className='contact-form-label'>
                     Mensaje:
-                    <textarea className='contact-form-textarea' name="mensaje" id='cf-mensaje'
+                    <textarea className='contact-form-textarea inter-text' name="mensaje" id='cf-mensaje'
                               placeholder='Cuéntame un poco más...' required/>
                 </label>
                 <label className='honeypot' style={{padding: '0'}}>
-                    <textarea className='contact-form-textarea hidden' tabIndex={-1} autoComplete='off' name="thePit" id='cf-thePit'/>
+                    <input tabIndex={-1} autoComplete='off' name="thePit" id='cf-thePit'/>
                 </label>
                 <div className='d-flex gap-4' style={{paddingLeft: '2em'}}>
                     <button type='submit' className='btn btn-primary '>

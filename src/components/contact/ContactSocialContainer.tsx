@@ -13,7 +13,7 @@ export default function ContactSocialContainer() {
                 {
                     socialNetworks.map((social: SocialContactI) => {
                         return (
-                            <ContactSocialCard socialContact={social}/>
+                            <ContactSocialCard key={social.name} socialContact={social}/>
                         )
                     })
                 }

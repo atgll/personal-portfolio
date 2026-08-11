@@ -1,12 +1,13 @@
 import {VercelRequest, VercelResponse} from '@vercel/node'
-import {sendMail} from "./mail.service";
+import {resMail, sendMail} from "./mail.service";
 
-export default async function handler(req: VercelRequest, res: VercelResponse): Promise<Response> {
+export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void> {
+
     if (req.method !== "POST") {
-        return Response.json(
+        res.status(405).json(
             { error: "Method not allowed" },
-            { status: 405 }
         );
+        return
     }
 
     try {
@@ -20,10 +21,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
 
         // Honeypot: si está relleno, probablemente sea un bot
         if (thePit) {
-            return Response.json(
+            res.status(400).json(
                 { error: "Invalid request" },
-                { status: 400 }
             );
+            return
         }
 
         // Comprobamos que todos los valores sean strings
@@ -33,20 +34,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
             typeof asunto !== "string" ||
             typeof mensaje !== "string"
         ) {
-            return Response.json(
+            res.status(400).json(
                 { error: "Missing or invalid fields" },
-                { status: 400 }
             );
+            return
         }
 
         // Validación básica del email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!emailRegex.test(email)) {
-            return Response.json(
+                res.status(400).json(
                 { error: "Invalid email" },
-                { status: 400 }
             );
+                return
         }
 
         // Límites básicos
@@ -54,12 +55,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
             nombre.length > 50 ||
             email.length > 120 ||
             asunto.length > 75 ||
-            mensaje.length > 500 || mensaje.length < 25
+            mensaje.length > 500
         ) {
-            return Response.json(
+            res.status(400).json(
                 { error: "Message length invalid" },
-                { status: 400 }
             );
+            return
         }
 
         await sendMail({
@@ -69,17 +70,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
             mensaje,
         });
 
-        return Response.json(
+        await resMail({
+            email,
+            nombre
+        })
+
+        res.status(200).json(
             { success: true },
-            { status: 200 }
         );
 
     } catch (error) {
         console.error("CONTACT API ERROR:", error);
 
-        return Response.json(
-            { error: "Internal server error" },
-            { status: 500 }
+        res.status(500).json(
+            { error: "Internal server error" }
         );
     }
 }
