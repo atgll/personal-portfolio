@@ -35,3 +35,21 @@ export const sendMail = async ({email, mensaje, asunto, nombre}: ContactMessageI
         throw e;
     }
 }
+
+export const resMail = async ({email, nombre}: Omit<ContactMessageI, 'mensaje' | 'asunto'>): Promise<void> => {
+    try {
+        const mailOptions = {
+            from: env.from,
+            to: email,
+            subject: 'Mensaje recibido',
+            text: `Gracias por contactarme\nHola ${nombre},\nResponderé a tu mensaje lo más proto posible`,
+            html: `<h2 class="garet-splash">ATG</h2><br><br><p class="inter-text">Hola ${nombre}</p><br><p>Gracias por contactarme, responderé a tu mensaje lo más pronto posible</p><br><p><strong class="garet-normal">Angel Torres</strong></p>`
+        }
+
+        await transporter.sendMail(mailOptions);
+
+    } catch (e) {
+        console.error('MAIL ERROR: ', e)
+        throw e;
+    }
+}
