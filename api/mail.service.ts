@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import {env} from "./env.config";
+import {env} from "./env.config.js";
 
 interface ContactMessageI {
     email: string;
