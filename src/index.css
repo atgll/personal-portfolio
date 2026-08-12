@@ -48,6 +48,7 @@ html {
 html,
 body {
     min-height: 100%;
+    font-size: clamp(16px, 1.5vw, 14px);
 }
 
 /* ========================================
@@ -99,8 +100,6 @@ body {
 
 .inter-text {
             font-family: "Inter", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
             font-style: normal;
         }
 

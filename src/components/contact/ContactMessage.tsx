@@ -69,9 +69,10 @@ export default function ContactMessage() {
 
     return (
         <div className='inter-text form-container'>
-            <h3 className='garet-title text-white'> O escríbeme directamente</h3>
-            <p className='inter-text text-white'>Cuéntame brevemente qué tienes en mente y te responderé lo antes
-                posible.</p>
+            <div className='d-flex column gap-1'>
+                <h3 className='garet-title text-white fs-l'> O escríbeme directamente</h3>
+                <p className='inter-text text-white'>Cuéntame brevemente qué tienes en mente y te responderé lo antes posible.</p>
+            </div>
             <form className='contact-form' onSubmit={handleSubmit}>
                 <label className='contact-form-label'>
                     Email:

@@ -19,15 +19,16 @@
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.5em;
 }
 
 .contact-form-label {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    padding: 1em;
+    padding: 0.5em;
     color: white;
+    max-width: 75%;
 }
 
 .contact-form-input {
@@ -37,7 +38,7 @@
 }
 
 .contact-form-textarea {
-    min-height: 10em;
+    min-height: 7em;
     padding: 0.5em 1em;
     box-shadow: 2px 4px var(--Primary);
     font-size: 1em;
@@ -63,11 +64,14 @@
 }
 
 .social-cards-container {
+    align-self: center;
     margin: auto 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
     gap: 1rem;
     align-items: center;
+    min-height: 50%;
 }
 
 @media (max-width: 600px) {
@@ -87,6 +91,7 @@
     border-radius: 1rem;
     transition: padding 0.3s;
     overflow: hidden;
+    min-width: 325px;
 }
 
 .social-network {
@@ -144,7 +149,7 @@
 }
 
 .social-card:hover .social-icon svg {
-    transform: scale(1.5) translate(-15px);
+    transform: scale(1.5) translate(-33%);
 }
 
 
