@@ -5,12 +5,13 @@ import {NavLink} from "react-router";
 export default function ProjectsItem({project}: { project: ProjectI }): ReactElement {
     return (
         <div className='d-grid columns-2 slide' style={{minHeight: '500px'}}>
-            <div className='d-flex column justify-between gap-4 p-1 garet-normal'>
+            <div className='d-flex column justify-between gap-4 p-3 garet-normal'>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
-                    <NavLink to={`/projects/${project.id}`}
-                             className="garet-normal fs-xl text-primary bold-text link">{project.title}</NavLink>
+                    <div className="garet-title fs-xl text-primary link">
+                        {project.title}
+                    </div>
                     {
-                        <div className='d-flex justify-start gap-2 align-center m-0 wrap'>
+                        <div className='d-flex justify-start gap-2 align-center m-0 wrap inter-text'>
                             <time className="fs-m fw-600 bg-dark-grey text-secondary"
                                   style={{padding: '0.5em 0.75em', borderRadius: '25px'}}
                                   dateTime={project.start}>Comienzo: {project.start}</time>
@@ -26,7 +27,7 @@ export default function ProjectsItem({project}: { project: ProjectI }): ReactEle
                                 project && project.techStack.length > 0 ? (project.techStack.map((tech: TechStackI) => {
                                     const Icon = tech.icon;
                                     return (
-                                        <Icon width={'1.2em'} height={'1.2em'}/>
+                                        <Icon width={'32px'} height={'32px'}/>
                                     )
                                 })) : (
                                     <p>Stack por definir</p>
@@ -35,7 +36,7 @@ export default function ProjectsItem({project}: { project: ProjectI }): ReactEle
                         </div>
                     </div>
                 </div>
-                <p className="fs-m inter-text">{project.description}</p>
+                <p className="inter-text p-3" style={{fontWeight: '400', fontSize: '1.2rem', lineHeight: '1.2em'}}>{project.description}</p>
                 <p className="fs-l garet-normal bold-text">Link: <NavLink
                     className="link"
                     to={`${project.link}`}>
@@ -43,10 +44,10 @@ export default function ProjectsItem({project}: { project: ProjectI }): ReactEle
                 </NavLink>
                 </p>
             </div>
-            <NavLink to={`/projects/${project.id}`} style={{}}>
+            <div>
                 <img style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block'}}
                      src={project.images[0]} alt={`${project.title} image`}/>
-            </NavLink>
+            </div>
         </div>
     )
 }

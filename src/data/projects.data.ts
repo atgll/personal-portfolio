@@ -1,6 +1,6 @@
 import type {ProjectI} from "../interfaces";
 import portfolioHome from '../assets/projects-imgs/portfolio/portfolio-home.webp'
-import {css, git, js, mongodb, nodeJs} from "./stack.data.ts";
+import {bun, git, reactJs, typeScript, vercel} from "./stack.data.ts";
 
 
 export const projects: ProjectI[] = [
@@ -12,6 +12,6 @@ export const projects: ProjectI[] = [
         end: '',
         images: [portfolioHome],
         link: 'https://www.angeltorresweb.com/',
-        techStack: [nodeJs, css, js, git, mongodb]
+        techStack: [bun, typeScript, reactJs, git, vercel]
     }
 ]
