@@ -1,6 +1,18 @@
 import './contact-style.css'
 import {useEffect, useRef, useState} from "react";
 
+// Declaración de tipos para window.turnstile
+declare global {
+    interface Window {
+        turnstile?: {
+            render: (element: HTMLElement, options: {
+                sitekey: string;
+                callback: (token: string) => void;
+            }) => void;
+        };
+    }
+}
+
 export default function ContactMessage() {
 
     const [success, setSuccess] = useState(false);
