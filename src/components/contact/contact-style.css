@@ -91,7 +91,7 @@
     border-radius: 1rem;
     transition: padding 0.3s;
     overflow: hidden;
-    min-width: 325px;
+    min-width: 250px;
 }
 
 .social-network {
