@@ -1,7 +1,7 @@
 import type {ReactElement} from "react";
-import {NavLink, useLocation} from "react-router";
-import type {SocialContactI} from "../../interfaces";
-import {socialNetworks} from "../../data/social.data.ts";
+import {/*NavLink*/ useLocation} from "react-router";
+/*import type {SocialContactI} from "../../interfaces";
+import {socialNetworks} from "../../data/social.data.ts";*/
 
 export default function PageTitle(): ReactElement {
 
