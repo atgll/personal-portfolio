@@ -1,5 +1,5 @@
 import './contact-style.css'
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 export default function ContactMessage() {
 
@@ -7,6 +7,7 @@ export default function ContactMessage() {
     const [error, setError] = useState(false);
     const [isSending, setIsSending] = useState(false);
     const [turnstileToken, setTurnstileToken] = useState<string>('');
+    const turnstileRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         // Cargar script de Turnstile una sola vez
@@ -14,6 +15,15 @@ export default function ContactMessage() {
         script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
         script.async = true;
         script.defer = true;
+        script.onload = () => {
+            // Esperar a que el widget esté disponible
+            if (window.turnstile && turnstileRef.current) {
+                window.turnstile.render(turnstileRef.current, {
+                    sitekey: import.meta.env.VITE_SITE_KEY,
+                    callback: (token: string) => setTurnstileToken(token),
+                });
+            }
+        };
         document.head.appendChild(script);
     }, []);
 
@@ -117,11 +127,7 @@ export default function ContactMessage() {
                 <label className='honeypot' style={{padding: '0'}}>
                     <input tabIndex={-1} autoComplete='off' name="thePit" id='cf-thePit'/>
                 </label>
-                <div
-                    className="cf-turnstile"
-                    data-sitekey={import.meta.env.VITE_SITE_KEY}
-                    data-callback={(token: string) => setTurnstileToken(token)}
-                />
+                <div ref={turnstileRef} />
                 <div className='d-flex gap-4' style={{paddingLeft: '2em'}}>
                     <button type='submit' className='btn btn-primary '>
                         {isSending ? 'Enviando...' : 'Enviar'}
