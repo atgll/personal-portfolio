@@ -3,9 +3,10 @@
     flex-direction: column;
     gap: 0.5rem;
     backdrop-filter: blur(200px);
-    padding: 2rem;
+    padding: clamp(1em, 1.5vw, 2em);
     position: relative;
     isolation: isolate;
+    box-sizing: border-box;
 }
 
 .form-container::after {
@@ -28,7 +29,7 @@
     gap: 0.5rem;
     padding: 0.5em;
     color: white;
-    max-width: 75%;
+    width: clamp(90%, 10em, 75%);
 }
 
 .contact-form-input {
@@ -50,9 +51,10 @@
     justify-content: start;
     gap: 1rem;
     backdrop-filter: blur(200px);
-    padding: 2rem;
+    padding: clamp(1em, 1.5vw, 2em);
     position: relative;
     isolation: isolate;
+    box-sizing: border-box;
 }
 
 .contact-social-container:after {
@@ -70,8 +72,8 @@
     flex-flow: column nowrap;
     justify-content: space-around;
     gap: 1rem;
-    align-items: center;
     min-height: 50%;
+    min-width: 60%;
 }
 
 @media (max-width: 600px) {
@@ -83,7 +85,7 @@
 .social-card {
     display: flex;
     flex-flow: row nowrap;
-    align-items: center;
+    align-items: stretch;
     gap: 1em;
     justify-content: space-evenly;
     backdrop-filter: blur(20px);
@@ -91,7 +93,6 @@
     border-radius: 1rem;
     transition: padding 0.3s;
     overflow: hidden;
-    min-width: 250px;
 }
 
 .social-network {

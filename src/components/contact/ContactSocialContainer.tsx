@@ -7,7 +7,7 @@ export default function ContactSocialContainer() {
         <div className='contact-social-container inter-text'>
             <div className='d-flex column gap-1'>
                 <h3 className='garet-title text-white fs-l'>¿Hablamos?</h3>
-                <p className='inter-text text-white fs-m'>Si tienes una propuesta, un proyecto o una oportunidad profesional, cuéntame.</p>
+                <p className='inter-text text-white fs-m'>Si tienes una propuesta, un proyecto o una oportunidad profesional, contactame.</p>
             </div>
             <div className='social-cards-container'>
                 {
