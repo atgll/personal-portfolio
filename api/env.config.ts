@@ -6,6 +6,7 @@ export interface EnvConfigInterface {
 
     from: string;
     to: string;
+    turnstileSecret: string;
 }
 
 export function getEnvVariables(key: string, defaultValue?: string): string {
