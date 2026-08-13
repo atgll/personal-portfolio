@@ -48,7 +48,7 @@ html {
 html,
 body {
     min-height: 100%;
-    font-size: clamp(16px, 1.5vw, 14px);
+    font-size: 100%;
 }
 
 /* ========================================
@@ -57,6 +57,7 @@ body {
 @font-face {
     font-family: 'Garet';
     src: url('./styles/fonts/Garet-Heavy.woff2') format('woff2');
+    font-weight: 900;
     font-style: normal;
     font-display: swap;
 }
@@ -64,13 +65,13 @@ body {
 @font-face {
     font-family: 'Garet-Book';
     src: url("./styles/fonts/Garet-Book.woff2") format('woff2');
+    font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
 .garet-splash {
     font-family: 'Garet', sans-serif;
-    font-weight: 300;
     letter-spacing: -0.09em;
 }
 
@@ -274,7 +275,6 @@ body {
 
 .logo {
     font-family: 'Garet', sans-serif;
-    font-weight: 300;
     letter-spacing: -0.15em;
     color: var(--Primary);
     font-size: clamp(4.5em, 6vw, 7.5em);
@@ -313,7 +313,7 @@ body {
 }
 
 .page-nav-logo {
-    font-size: 0.6rem;
+    font-size: 0.7em;
 }
 
 .page-nav {
@@ -494,18 +494,32 @@ body {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+   /* position: relative;
+    isolation: isolate;
+    backdrop-filter: blur(200px);*/
+}
+
+.background-blur {
     position: relative;
     isolation: isolate;
     backdrop-filter: blur(200px);
 }
 
-.projects::before {
+.background-blur::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 15%, rgba(204, 204, 204, 0.5) 50%, rgba(255, 255, 255, 0.20) 100%);
+}
+
+/*.projects::before {
     content: '';
     position: absolute;
     inset: 0;
     z-index: -1;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 15%, rgba(204, 204, 204, 0.25) 50%, rgba(255, 255, 255, 0.15) 100%);
-}
+}*/
 
 .projects-image {
     width: 100%;

@@ -1,3 +1,17 @@
+:root{
+    /* Typography */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+
+    --heading-sm: clamp(1.75rem, 2.5vw, 2.5rem);
+    --heading-md: clamp(2.25rem, 4vw, 4rem);
+    --heading-lg: clamp(3rem, 7vw, 7rem);
+    --display: clamp(4rem, 9vw, 10rem);
+}
+
+
 /* ========================================
    UTILITY CLASSES - TEXT
    ======================================== */
@@ -83,19 +97,19 @@
 UTILITY CLASSES - FONT SIZE
 ========================================*/
 .fs-xs {
-    font-size: 0.5em;
+    font-size: var(--text-xs);
 }
 
 .fs-s {
-    font-size: 0.8em;
+    font-size: var(--text-sm);
 }
 
 .fs-m {
-    font-size: 1em;
+    font-size: var(--text-base);
 }
 
 .fs-l {
-    font-size: 1.5em;
+    font-size: var(--text-lg);
 }
 
 .fs-xl {
@@ -107,7 +121,19 @@ UTILITY CLASSES - FONT SIZE
 }
 
 .subtitle-size {
-    font-size: clamp(2em, 3vw, 3.2em);
+    font-size: var(--heading-md);
+}
+
+h1 {
+    font-size: var(--heading-lg);
+}
+
+h2 {
+    font-size: var(--heading-md);
+}
+
+h3 {
+    font-size: var(--heading-sm);
 }
 
 /* ========================================

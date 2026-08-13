@@ -4,13 +4,13 @@ import type {ReactElement, ReactNode} from "react";
 export default function AboutContent() {
     return (
         <>
-            <div className='about d-grid columns-2'>
+            <div className='about d-grid columns-2 background-blur'>
                 <div className="about-image">
                     <img className="greyscale" src={`${sections[0].imgUrl}`} alt="Imagen sobre mi"/>
                 </div>
                 <AboutText>
                     {
-                        texts.map((text: string) => (<AboutP fsize='fs-l' font={'garet-normal'} className={''} text={text}/>))
+                        texts.map((text: string) => (<AboutP text={text}/>))
                     }
                 </AboutText>
             </div>
@@ -20,15 +20,15 @@ export default function AboutContent() {
 
 function AboutText({children}: {children?: ReactNode}): ReactElement {
     return (
-        <div className={`about-text bg-light-blue`}>
+        <div className={`about-text`}>
             {children}
         </div>
     )
 }
 
-function AboutP({fsize, font, className, text}: {fsize: string; font: string; className: string; text: string}): ReactElement {
+function AboutP({text}: { text: string }): ReactElement {
     return (
-        <p className={`${fsize} ${font} ${className ?? ''}`}>
+        <p className='inter-text fs-l' style={{lineHeight: '1.25em'}}>
             {text}
         </p>
     )

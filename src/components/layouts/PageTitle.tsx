@@ -1,7 +1,7 @@
 import type {ReactElement} from "react";
-import {useLocation} from "react-router";
-import {technologies} from "../../data";
-import type {TechStackI} from "../../interfaces";
+import {NavLink, useLocation} from "react-router";
+import type {SocialContactI} from "../../interfaces";
+import {socialNetworks} from "../../data/social.data.ts";
 
 export default function PageTitle(): ReactElement {
 
@@ -19,14 +19,16 @@ export default function PageTitle(): ReactElement {
             className={`${isHome ? 'section-title' : 'page-section-title'} d-flex align-center justify-center`}
             style={{width: 'fit-content'}}
         >
-            <h2 className="garet-splash fs-xl text-center" style={{letterSpacing: '0.05em', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1em'}}>
-                {isHome ? technologies.map((tech: TechStackI) => {
-                    const Icon = tech.icon;
+            <h3 className="garet-splash text-center" style={{letterSpacing: '0.05em', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1em'}}>
+                {isHome ? '' /*{socialNetworks.map((net: SocialContactI) => {
+                    const Icon = net.icon;
                     return(
-                            <Icon width={'1.2em'} height={'1.2em'}/>
+                        <NavLink to={net.link}>
+                            <Icon style={{cursor: 'pointer'}} width={'1.2em'} height={'1.2em'}/>
+                        </NavLink>
                         )
-                }) : title}
-            </h2>
+                }) }*/ : title}
+            </h3>
         </div>
     )
 }

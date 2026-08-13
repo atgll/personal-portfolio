@@ -4,7 +4,7 @@ import {NavLink} from "react-router";
 
 export default function ProjectsItem({project}: { project: ProjectI }): ReactElement {
     return (
-        <div className='d-grid columns-2 slide' style={{minHeight: '500px'}}>
+        <div className='d-grid columns-2 slide background-blur' style={{minHeight: '500px'}}>
             <div className='d-flex column justify-between gap-4 p-3 garet-normal'>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
                     <div className="garet-title fs-xl text-primary link">
