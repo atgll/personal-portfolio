@@ -1,5 +1,6 @@
 import {VercelRequest, VercelResponse} from '@vercel/node'
 import {resMail, sendMail} from "./mail.service.js";
+import {env} from "./env.config.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void> {
 
@@ -25,6 +26,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
             asunto,
             mensaje,
             thePit,
+            'cf-turnstile-response': turnstileToken,
         } = req.body;
 
         console.log('BODY RECEIVED');
@@ -34,6 +36,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
             asunto,
             mensaje,
             thePit,
+            turnstileToken,
         });
 
         // Honeypot: si está relleno, probablemente sea un bot
@@ -46,6 +49,55 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
         }
 
         console.log('HONEYPOT OK');
+
+        // Validación de Turnstile
+        if (typeof turnstileToken !== 'string' || turnstileToken.length === 0) {
+            console.log('TURNSTILE TOKEN MISSING');
+            res.status(400).json(
+                { error: "Turnstile token missing" },
+            );
+            return;
+        }
+
+        console.log('TURNSTILE TOKEN PRESENT');
+
+        // Llamada a Siteverify
+        let turnstileResult;
+        try {
+            const formData = new URLSearchParams();
+            formData.append('secret', env.turnstileSecret);
+            formData.append('response', turnstileToken);
+
+            const siteverifyResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: formData.toString(),
+            });
+
+            if (!siteverifyResponse.ok) {
+                throw new Error(`Siteverify HTTP ${siteverifyResponse.status}`);
+            }
+
+            turnstileResult = await siteverifyResponse.json();
+        } catch (e) {
+            console.error('SITEVERIFY ERROR:', e);
+            res.status(500).json(
+                { error: "Turnstile validation failed" },
+            );
+            return;
+        }
+
+        if (!turnstileResult.success) {
+            console.log('TURNSTILE FAILED');
+            res.status(400).json(
+                { error: "Turnstile validation failed" },
+            );
+            return;
+        }
+
+        console.log('TURNSTILE OK');
 
         // Comprobamos que todos los valores sean strings
         if (

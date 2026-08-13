@@ -1,11 +1,21 @@
 import './contact-style.css'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export default function ContactMessage() {
 
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
     const [isSending, setIsSending] = useState(false);
+    const [turnstileToken, setTurnstileToken] = useState<string>('');
+
+    useEffect(() => {
+        // Cargar script de Turnstile una sola vez
+        const script = document.createElement('script');
+        script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+    }, []);
 
     const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
 
@@ -16,10 +26,20 @@ export default function ContactMessage() {
             setSuccess(false);
             setIsSending(true);
 
+            // Validar que el token de Turnstile esté presente
+            if (!turnstileToken) {
+                setError(true);
+                setIsSending(false);
+                return;
+            }
+
             const form = event.currentTarget;
             const formData = new FormData(form);
 
-            const data = Object.fromEntries(formData.entries());
+            const data = {
+                ...Object.fromEntries(formData.entries()),
+                'cf-turnstile-response': turnstileToken,
+            };
 
             const response = await fetch("/api/contact", {
                 method: "POST",
@@ -97,6 +117,11 @@ export default function ContactMessage() {
                 <label className='honeypot' style={{padding: '0'}}>
                     <input tabIndex={-1} autoComplete='off' name="thePit" id='cf-thePit'/>
                 </label>
+                <div
+                    className="cf-turnstile"
+                    data-sitekey={import.meta.env.VITE_SITE_KEY}
+                    data-callback={(token: string) => setTurnstileToken(token)}
+                />
                 <div className='d-flex gap-4' style={{paddingLeft: '2em'}}>
                     <button type='submit' className='btn btn-primary '>
                         {isSending ? 'Enviando...' : 'Enviar'}

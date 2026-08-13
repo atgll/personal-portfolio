@@ -44,5 +44,6 @@ export const env: EnvConfigInterface = {
     user: getEnvVariables('GMAIL_USER'),
     appPass: getEnvVariables('GMAIL_APP_PASSWORD'),
     from: getEnvVariables('MAIL_FROM'),
-    to: getEnvVariables('MAIL_TO')
+    to: getEnvVariables('MAIL_TO'),
+    turnstileSecret: getEnvVariables('SECRET_KEY'),
 }
