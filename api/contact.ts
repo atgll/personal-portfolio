@@ -1,6 +1,8 @@
 import {VercelRequest, VercelResponse} from '@vercel/node'
 import {resMail, sendMail} from "./mail.service.js";
 import {env} from "./env.config.js";
+import { checkRateLimit, getClientIp } from "./rateLimit.js";
+import { isValidEmail, validateFieldLengths } from "./validators.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void> {
 
@@ -17,6 +19,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
 
     console.log('METHOD OK');
 
+    // Obtener IP del cliente para rate limiting
+    const clientIp = getClientIp(req.headers as Record<string, string | string[] | undefined>);
+    console.log('CLIENT IP OBTAINED');
+
+    // Verificar rate limit
+    if (!checkRateLimit(clientIp)) {
+        console.log(`RATE LIMIT EXCEEDED for IP: ${clientIp}`);
+        res.status(429).json(
+            { error: "Demasiados intentos. Por favor, intenta más tarde." },
+        );
+        return;
+    }
+
+    console.log('RATE LIMIT OK');
+
     try {
         console.log('ENTERING TRY');
 
@@ -30,14 +47,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
         } = req.body;
 
         console.log('BODY RECEIVED');
-        console.log({
-            email,
-            nombre,
-            asunto,
-            mensaje,
-            thePit,
-            turnstileToken,
-        });
 
         // Honeypot: si está relleno, probablemente sea un bot
         if (thePit) {
@@ -115,27 +124,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
 
         console.log('TYPES OK')
 
-        // Validación básica del email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailRegex.test(email)) {
-            console.log('BAD EMAIL')
-                res.status(400).json(
-                { error: "Invalid email" },
+        // Validación mejorada del email
+        if (!isValidEmail(email)) {
+            console.log('INVALID EMAIL FORMAT')
+            res.status(400).json(
+                { error: "Invalid email format" },
             );
-                return
+            return
         }
 
         console.log('EMAIL OK')
 
-        // Límites básicos
-        if (
-            nombre.length > 50 ||
-            email.length > 120 ||
-            asunto.length > 75 ||
-            mensaje.length > 500
-        ) {
-            console.log('INVALID LENGTHS')
+        // Validar longitudes de campos
+        if (!validateFieldLengths({ nombre, email, asunto, mensaje })) {
+            console.log('INVALID FIELD LENGTHS')
             res.status(400).json(
                 { error: "Message length invalid" },
             );
