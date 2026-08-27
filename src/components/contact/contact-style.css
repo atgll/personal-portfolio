@@ -7,6 +7,7 @@
     position: relative;
     isolation: isolate;
     box-sizing: border-box;
+    color: var(--Primary);
 }
 
 .form-container::after {
@@ -14,7 +15,7 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 15%, rgba(204, 204, 204, 0.25) 50%, rgba(255, 255, 255, 0.15) 100%);
+    background: var(--Bg-radial-gradient);
 }
 
 .contact-form {
@@ -28,21 +29,25 @@
     flex-direction: column;
     gap: 0.5rem;
     padding: 0.5em;
-    color: white;
+    color: var(--Primary);
     width: clamp(90%, 10em, 75%);
 }
 
 .contact-form-input {
     padding: 0.5em 1em;
-    box-shadow: 2px 4px var(--Primary);
+    box-shadow: 1px 1px 10px var(--Primary);
     font-size: 1em;
+    background: var(--Bg-light);
+    color: var(--Primary)
 }
 
 .contact-form-textarea {
     min-height: 7em;
     padding: 0.5em 1em;
-    box-shadow: 2px 4px var(--Primary);
+    box-shadow: 1px 1px 10px var(--Primary);
     font-size: 1em;
+    background: var(--Bg-light);
+    color: var(--Primary)
 }
 
 .contact-social-container {
@@ -55,6 +60,7 @@
     position: relative;
     isolation: isolate;
     box-sizing: border-box;
+    color: var(--Primary);
 }
 
 .contact-social-container:after {
@@ -62,7 +68,7 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 15%, rgba(204, 204, 204, 0.25) 50%, rgba(255, 255, 255, 0.15) 100%);
+    background: var(--Bg-radial-gradient);
 }
 
 .social-cards-container {
@@ -83,16 +89,34 @@
 }
 
 .social-card {
+    color: var(--Primary);
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;
     gap: 1em;
     justify-content: space-evenly;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(200px);
     padding: 0.8rem;
     border-radius: 1rem;
-    transition: padding 0.3s;
     overflow: hidden;
+    position: relative;
+    isolation: isolate;
+    /*background: var(--Bg-light);*/
+    transition: all 0.3s ease-in;
+}
+
+.social-card::after {
+    content: '';
+    inset: 0;
+    z-index: -1;
+    position: absolute;
+    background: radial-gradient(circle,rgba(59, 59, 59, 0) 0%, rgba(242, 242, 242, 0.25) 100%);;
+}
+
+[data-theme="dark"] {
+    .social-card::after {
+        background: var(--Bg-light);
+    }
 }
 
 .social-network {
@@ -111,6 +135,8 @@
     align-items: center;
     gap: 1em;
     margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.5em;
 }
 
 .social-icon {
@@ -137,6 +163,11 @@
     opacity: 0;
     transform: translate(-5px, 5px);
     transition: all 0.35s ease;
+}
+
+.social-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px 0 rgb(from var(--Primary) r g b / 0.25), 0 6px 20px 0 rgba(from var(--Primary) r g b / 0.30);
 }
 
 .social-card:hover .link-arrow {

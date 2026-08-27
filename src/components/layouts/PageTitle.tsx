@@ -20,14 +20,7 @@ export default function PageTitle(): ReactElement {
             style={{width: 'fit-content'}}
         >
             <h3 className="garet-splash text-center" style={{letterSpacing: '0.05em', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1em'}}>
-                {isHome ? '' /*{socialNetworks.map((net: SocialContactI) => {
-                    const Icon = net.icon;
-                    return(
-                        <NavLink to={net.link}>
-                            <Icon style={{cursor: 'pointer'}} width={'1.2em'} height={'1.2em'}/>
-                        </NavLink>
-                        )
-                }) }*/ : title}
+                {isHome ? '' : title}
             </h3>
         </div>
     )

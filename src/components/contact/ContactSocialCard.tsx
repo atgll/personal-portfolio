@@ -1,16 +1,16 @@
 import type {SocialContactI} from "../../interfaces";
 import {NavLink} from "react-router";
-import type {ComponentType, SVGProps} from "react";
 import {ExternalLink} from "lucide-react";
+import {useTheme} from "../../core/context";
 
 export default function ContactSocialCard({socialContact}: { socialContact: SocialContactI }) {
 
-    const IconComp: ComponentType<SVGProps<SVGSVGElement>> = socialContact.icon
+    const {resolvedTheme} = useTheme();
 
     return (
         <NavLink to={socialContact.link} className='social-card' target={'_blank'}>
             <div className='social-icon'>
-                <IconComp width={'56px'} height={'56px'}/>
+                {socialContact.icon(resolvedTheme)}
             </div>
             <div>
                 <div className='social-network'>

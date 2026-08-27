@@ -20,23 +20,64 @@ export default function ContactMessage() {
     const [isSending, setIsSending] = useState(false);
     const [turnstileToken, setTurnstileToken] = useState<string>('');
     const turnstileRef = useRef<HTMLDivElement>(null);
+    const turnstileRendered = useRef(false)
 
     useEffect(() => {
-        // Cargar script de Turnstile una sola vez
+
+        const renderTurnstile = () => {
+            if (window.turnstile && turnstileRef.current && !turnstileRendered.current) {
+                window.turnstile.render(turnstileRef.current, {
+                    sitekey: import.meta.env.VITE_SITE_KEY,
+                    callback: (token: string) => setTurnstileToken(token),
+                });
+
+                turnstileRendered.current = true;
+            }
+        }
+
+        const createScript = () => {
+            const script = document.createElement('script');
+            script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+            script.async = true;
+            script.defer = true;
+
+            script.onload = () => renderTurnstile;
+            document.head.appendChild(script);
+        }
+
+        const existingScript = document.querySelector(
+            'script[src="https://challenges.cloudflare.com/turnstile/v0/api.js"]'
+        );
+
+        if(window.turnstile) {
+            renderTurnstile()
+        } else if (!existingScript){
+            createScript();
+        } else {
+            existingScript.addEventListener('load', renderTurnstile)
+        }
+
+        return () => {
+            existingScript?.removeEventListener('load', renderTurnstile)
+        }
+
+        /*// Cargar script de Turnstile una sola vez
         const script = document.createElement('script');
         script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
         script.async = true;
         script.defer = true;
         script.onload = () => {
             // Esperar a que el widget esté disponible
-            if (window.turnstile && turnstileRef.current) {
+            if (window.turnstile && turnstileRef.current && !turnstileRendered.current) {
                 window.turnstile.render(turnstileRef.current, {
                     sitekey: import.meta.env.VITE_SITE_KEY,
                     callback: (token: string) => setTurnstileToken(token),
                 });
+
+                turnstileRendered.current = true;
             }
-        };
-        document.head.appendChild(script);
+        };*/
+
     }, []);
 
     const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
@@ -112,8 +153,8 @@ export default function ContactMessage() {
     return (
         <div className='inter-text form-container'>
             <div className='d-flex column gap-1'>
-                <h3 className='garet-title text-white fs-l'> O escríbeme directamente</h3>
-                <p className='inter-text text-white'>Cuéntame brevemente qué tienes en mente y te responderé lo antes posible.</p>
+                <h3 className='garet-title fs-l'> O escríbeme directamente</h3>
+                <p className='inter-text'>Cuéntame brevemente qué tienes en mente y te responderé lo antes posible.</p>
             </div>
             <form className='contact-form' onSubmit={handleSubmit}>
                 <label className='contact-form-label'>

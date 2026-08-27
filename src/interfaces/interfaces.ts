@@ -1,4 +1,4 @@
-import type {ComponentType, SVGProps} from "react";
+import type {ComponentType, ReactNode, SVGProps} from "react";
 
 export interface SiteSectionI {
     path: string;
@@ -17,6 +17,10 @@ export interface ProjectI {
     techStack: TechStackI[];
 }
 
+export type Theme = 'light' | 'dark';
+
+export type TheSvgIcon = (theme: Theme) => ReactNode;
+
 export interface TechStackI {
     name: string;
     icon: ComponentType<SVGProps<SVGSVGElement>>;
@@ -24,7 +28,7 @@ export interface TechStackI {
 
 export interface SocialContactI {
     name: string;
-    icon: ComponentType<SVGProps<SVGSVGElement>>;
+    icon: TheSvgIcon;
     link: string;
     phrase: string;
 }
