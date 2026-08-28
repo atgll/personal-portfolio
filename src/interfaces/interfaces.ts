@@ -14,6 +14,7 @@ export interface ProjectI {
     end?: string;
     images: string[];
     link?: string;
+    repository?: string;
     techStack: TechStackI[];
 }
 

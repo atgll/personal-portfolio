@@ -12,6 +12,7 @@ export const projects: ProjectI[] = [
         end: '',
         images: [portfolioHome],
         link: 'https://www.angeltorresweb.com/',
+        repository: 'https://github.com/atgll/personal-portfolio',
         techStack: [bun, typeScript, reactJs, git, vercel]
     }
 ]

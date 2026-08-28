@@ -36,11 +36,18 @@ export default function ProjectsItem({project}: { project: ProjectI }): ReactEle
                         </div>
                     </div>
                 </div>
-                <p className="inter-text p-3" style={{fontWeight: '400', fontSize: '1.2rem', lineHeight: '1.2em'}}>{project.description}</p>
+                <p className="inter-text p-3"
+                   style={{fontWeight: '400', fontSize: '1.2rem', lineHeight: '1.2em'}}>{project.description}</p>
                 <p className="fs-l garet-normal bold-text">Link: <NavLink
                     className="link"
                     to={`${project.link}`}>
-                    {project.link?.slice(8)}
+                    {project.link?.split('//')[1]}
+                </NavLink>
+                </p>
+                <p className="fs-l garet-normal bold-text">Repositorio: <NavLink
+                    className="link"
+                    to={`${project.repository}`}>
+                    {project.repository?.split('//')[1]}
                 </NavLink>
                 </p>
             </div>
