@@ -5,18 +5,18 @@ import contactImg from '../assets/site-images/contact-img-ok.webp';
 
 export const sections: SiteSectionI[] = [
     {
-        path: '/about',
+        path: '/sobremi',
         imgUrl: aboutImg,
         name: 'Sobre Mi'
     },
     {
-        path: '/projects',
+        path: '/proyectos',
         imgUrl: projectsImg,
         name: 'Proyectos'
     },
     {
-        path: '/contact',
+        path: '/contacto',
         imgUrl: contactImg,
-        name: 'Contact'
+        name: 'Contacto'
     }
 ]

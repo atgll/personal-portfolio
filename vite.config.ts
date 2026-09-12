@@ -5,6 +5,7 @@ import 'dotenv/config'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/',
   define: {
     'import.meta.env.SITE_KEY': JSON.stringify(process.env.SITE_KEY ?? ''),
   },
